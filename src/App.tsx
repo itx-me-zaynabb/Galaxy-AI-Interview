@@ -37,7 +37,7 @@ export default function App() {
               <Testimonials />
              
               <CTA setPage={setPage} />
-              <Footer />
+              <Footer/>
             </motion.div>
           )}
           {page === "interview" && (
