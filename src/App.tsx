@@ -11,6 +11,7 @@ import Footer from "./sections/Footer";
 import InterviewPage from "./sections/InterviewPage";
 import Dashboard from "./sections/Dashboard";
 import Features from "./sections/features";
+import Pricing from "./sections/Pircing";
 
 export type Page = "home" | "interview" | "dashboard";
 
@@ -35,6 +36,7 @@ export default function App() {
               <HowItWorks />
               <Analytics />
               <Testimonials />
+              <Pricing/>
               <CTA setPage={setPage} />
               <Footer />
             </motion.div>
