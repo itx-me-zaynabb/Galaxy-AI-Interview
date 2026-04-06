@@ -21,9 +21,9 @@ export default function App() {
     <div className="relative min-h-screen bg-galaxy-bg overflow-x-hidden" style={{ cursor: "none" }}>
       <GalaxyCursor />
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-galaxy-purple/8 blur-[130px]" />
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] rounded-full bg-galaxy-cyan/6 blur-[110px]" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-galaxy-indigo/6 blur-[120px]" />
+        <div className="absolute top-0 left-1/4 w-150 h-150 rounded-full bg-galaxy-purple/8 blur-[130px]" />
+        <div className="absolute top-1/2 right-0 w-100 h-100 rounded-full bg-galaxy-cyan/6 blur-[110px]" />
+        <div className="absolute bottom-0 left-0 w-125 h-125 rounded-full bg-galaxy-indigo/6 blur-[120px]" />
       </div>
       <div className="relative z-10">
         <Navbar page={page} setPage={setPage} />
