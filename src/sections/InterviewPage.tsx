@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/immutability */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -205,7 +206,7 @@ export default function InterviewPage() {
                     whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(124,58,237,0.6)" }}
                     whileTap={{ scale: 0.97 }}
                     onClick={startInterview}
-                    className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-galaxy-purple to-galaxy-indigo text-white font-semibold shadow-glow"
+                    className="px-8 py-3.5 rounded-xl bg-linear-to-r from-galaxy-purple to-galaxy-indigo text-white font-semibold shadow-glow"
                   >
                     Start Interview →
                   </motion.button>
@@ -221,7 +222,7 @@ export default function InterviewPage() {
                   className="py-10"
                 >
                   <div className="flex gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-galaxy-purple to-galaxy-cyan flex-shrink-0 flex items-center justify-center text-xs font-bold font-mono shadow-glow">
+                    <div className="w-9 h-9 rounded-xl bg-linear-to-br from-galaxy-purple to-galaxy-cyan flex-shrink-0 flex items-center justify-center text-xs font-bold font-mono shadow-glow">
                       AI
                     </div>
                     <div className="glass rounded-xl rounded-tl-none px-4 py-3 flex items-center gap-2">
@@ -271,7 +272,7 @@ export default function InterviewPage() {
 
                   {/* AI message */}
                   <div className="flex gap-3 mb-5">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-galaxy-purple to-galaxy-cyan flex-shrink-0 flex items-center justify-center text-xs font-bold font-mono shadow-glow">
+                    <div className="w-9 h-9 rounded-xl bg-linear-to-br from-galaxy-purple to-galaxy-cyan flex-shrink-0 flex items-center justify-center text-xs font-bold font-mono shadow-glow">
                       AI
                     </div>
                     <div className="glass rounded-xl rounded-tl-none px-4 py-3 text-sm text-galaxy-text leading-relaxed">
@@ -382,7 +383,7 @@ export default function InterviewPage() {
                     <ul className="space-y-1.5">
                       {feedback.strengths.map((s) => (
                         <li key={s} className="text-sm text-galaxy-text flex items-start gap-2">
-                          <span className="text-green-400 mt-0.5 flex-shrink-0">✓</span> {s}
+                          <span className="text-green-400 mt-0.5 shrink-0">✓</span> {s}
                         </li>
                       ))}
                     </ul>
@@ -394,7 +395,7 @@ export default function InterviewPage() {
                     <ul className="space-y-1.5">
                       {feedback.improve.map((s) => (
                         <li key={s} className="text-sm text-galaxy-subtext flex items-start gap-2">
-                          <span className="text-amber-400 mt-0.5 flex-shrink-0">→</span> {s}
+                          <span className="text-amber-400 mt-0.5 shrink-0">→</span> {s}
                         </li>
                       ))}
                     </ul>
@@ -411,7 +412,7 @@ export default function InterviewPage() {
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       onClick={nextQuestion}
-                      className="flex-1 py-3 rounded-xl bg-gradient-to-r from-galaxy-purple to-galaxy-indigo text-white font-semibold text-sm shadow-glow"
+                      className="flex-1 py-3 rounded-xl bg-linear-to-r from-galaxy-purple to-galaxy-indigo text-white font-semibold text-sm shadow-glow"
                     >
                       Next Question →
                     </motion.button>
@@ -470,7 +471,7 @@ export default function InterviewPage() {
                     <p className="text-xs text-galaxy-muted">{q.company} · {q.difficulty}</p>
                   </div>
                   {i === currentQ % QUESTIONS.length && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-galaxy-cyan animate-pulse flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-galaxy-cyan animate-pulse shrink-0" />
                   )}
                 </div>
               ))}
