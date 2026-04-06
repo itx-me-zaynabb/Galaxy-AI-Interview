@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { motion, useMotionValue, useTransform, cubicBezier } from "framer-motion";
+import { motion, useMotionValue, useTransform, useViewportScroll, cubicBezier } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { useRef, useState, useEffect } from "react";
@@ -81,17 +80,12 @@ function GalaxyScene({ segments }: { segments: number }) {
 // ==================== Particle Overlay ====================
 function ParticleOverlay({ particleCount }: { particleCount: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
+    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
     resize();
     window.addEventListener("resize", resize);
 
@@ -122,17 +116,13 @@ function ParticleOverlay({ particleCount }: { particleCount: number }) {
       raf = requestAnimationFrame(draw);
     };
     draw();
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
   }, [particleCount]);
 
   return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-10" />;
 }
 
-// ==================== Main Features Component ====================
+// ==================== Main Features Component with Parallax ====================
 export default function Features() {
   const [windowSize, setWindowSize] = useState({ w: window.innerWidth, h: window.innerHeight });
   const isMobile = windowSize.w < 768;
@@ -145,17 +135,19 @@ export default function Features() {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // Parallax scroll
+  const { scrollY } = useViewportScroll();
+  const parallaxY = useTransform(scrollY, [0, 600], [0, -60]); // cards float up slightly on scroll
+
   return (
     <section className="py-24 sm:py-28 px-4 sm:px-6 relative overflow-hidden">
-      {/* 3D Galaxy */}
       <Canvas camera={{ position: [0, 0, 5], fov: 60 }} className="absolute inset-0 z-0 pointer-events-none opacity-40">
         <GalaxyScene segments={sphereSegments} />
       </Canvas>
 
-      {/* Floating Particles */}
       <ParticleOverlay particleCount={particleCount} />
 
-      <div className="max-w-7xl mx-auto relative z-20">
+      <motion.div style={{ y: parallaxY }} className="max-w-7xl mx-auto relative z-20">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-16">
           <span className="inline-block text-xs font-mono text-galaxy-violet tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border border-galaxy-purple/30 bg-galaxy-purple/10">
             Everything You Need
@@ -171,7 +163,7 @@ export default function Features() {
             <motion.div key={f.title} variants={item}><FeatureCard f={f} /></motion.div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }
