@@ -1,9 +1,30 @@
 @import "tailwindcss";
 
+/* =========================
+   🌌 DESIGN TOKENS
+========================= */
+:root {
+  --bg-primary: #05070d;
+  --bg-secondary: #0b0f1a;
+
+  --glow-purple: #7c3aed;
+  --glow-cyan: #22d3ee;
+  --glow-violet: #a78bfa;
+
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+
+  --glass-bg: rgba(15, 22, 40, 0.55);
+  --glass-border: rgba(124, 58, 237, 0.15);
+}
+
+/* =========================
+   🧱 BASE LAYER
+========================= */
 @layer base {
-  * {
-    margin: 0;
-    padding: 0;
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -12,8 +33,12 @@
   }
 
   body {
-    background-color: #05070d;
-    color: #e5e7eb;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.12), transparent),
+      radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.08), transparent),
+      var(--bg-primary);
+
+    color: var(--text-primary);
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -24,40 +49,75 @@
     color: #fff;
   }
 
+  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 4px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #05070d;
+    background: var(--bg-primary);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #7c3aed;
+    background: linear-gradient(
+      to bottom,
+      var(--glow-purple),
+      var(--glow-cyan)
+    );
     border-radius: 4px;
   }
 }
 
+/* =========================
+   ✨ UTILITIES (PREMIUM)
+========================= */
 @layer utilities {
+  /* 🔥 Text Gradients */
   .text-gradient {
     background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-hot {
-    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #22d3ee 100%);
+    background: linear-gradient(
+      135deg,
+      #7c3aed 0%,
+      #ec4899 50%,
+      #22d3ee 100%
+    );
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
+  /* 🌌 Glow Effects */
+  .glow {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+  }
+
+  .glow-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.6);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* 🧊 Glass System */
   .glass {
-    background: rgba(15, 22, 40, 0.6);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(124, 58, 237, 0.15);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.25rem;
+  }
+
+  .glass-strong {
+    background: rgba(15, 22, 40, 0.75);
+    border: 1px solid rgba(124, 58, 237, 0.25);
   }
 
   .glass-hover {
@@ -65,11 +125,29 @@
   }
 
   .glass-hover:hover {
-    background: rgba(15, 22, 40, 0.8);
+    background: rgba(15, 22, 40, 0.85);
     border-color: rgba(124, 58, 237, 0.4);
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.25);
   }
 
+  /* 🌠 Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* 🌌 Noise Overlay */
   .noise {
     position: relative;
   }
@@ -80,7 +158,25 @@
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
-    opacity: 0.03;
+    opacity: 0.04;
     z-index: 0;
+  }
+
+  /* ⚡ Button Style (Reusable) */
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      var(--glow-purple),
+      var(--glow-cyan)
+    );
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
   }
 }
