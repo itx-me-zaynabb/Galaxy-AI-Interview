@@ -1,113 +1,165 @@
-import { motion } from "framer-motion";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { motion, useMotionValue, useTransform, cubicBezier } from "framer-motion";
 
 const features = [
   {
     icon: "🎤",
     title: "AI Mock Interviews",
-    desc: "Simulate real FAANG-style technical and behavioral interviews with our GPT-4 powered interviewer that adapts to your level.",
+    desc: "Simulate real FAANG-style technical and behavioral interviews with adaptive AI.",
     accent: "from-galaxy-purple to-galaxy-indigo",
-    glow: "rgba(124,58,237,0.3)",
   },
   {
     icon: "⚡",
     title: "Real-time Feedback",
-    desc: "Get instant scoring on clarity, depth, and technical accuracy. Know exactly where you stand after every answer.",
+    desc: "Instant scoring on clarity, depth, and accuracy after every answer.",
     accent: "from-galaxy-cyan to-galaxy-indigo",
-    glow: "rgba(34,211,238,0.3)",
   },
   {
     icon: "🧠",
     title: "Smart Question Engine",
-    desc: "500+ curated questions across System Design, DSA, Behavioral, and role-specific tracks. Infinite variation, never repeat.",
+    desc: "500+ curated questions with infinite variation across domains.",
     accent: "from-galaxy-violet to-galaxy-purple",
-    glow: "rgba(167,139,250,0.3)",
   },
   {
     icon: "📊",
     title: "Performance Analytics",
-    desc: "Track your progress over time with detailed charts. Identify weak spots, celebrate improvements, optimize study time.",
-    accent: "from-galaxy-pink to-galaxy-purple",
-    glow: "rgba(236,72,153,0.3)",
+    desc: "Track progress, identify weak spots, and optimize prep.",
+    accent: "from-pink-400 to-galaxy-purple",
   },
   {
     icon: "🌌",
     title: "AI Thinking Mode",
-    desc: "Watch the AI reason through your answer in real time. Learn how top engineers think, not just what they say.",
+    desc: "See how top engineers think in real time.",
     accent: "from-galaxy-indigo to-galaxy-cyan",
-    glow: "rgba(79,70,229,0.3)",
   },
   {
     icon: "🏆",
     title: "Company Tracks",
-    desc: "Practice with actual interview patterns from Google, Meta, Amazon, Apple, Netflix — tailored to each company's style.",
-    accent: "from-galaxy-purple to-galaxy-pink",
-    glow: "rgba(124,58,237,0.3)",
+    desc: "Practice real interview patterns from top companies.",
+    accent: "from-galaxy-purple to-pink-400",
   },
 ];
 
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: cubicBezier(0.22, 1, 0.36, 1) },
+  },
+};
+
+function FeatureCard({ f }: any) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-50, 50], [8, -8]);
+  const rotateY = useTransform(x, [-50, 50], [-8, 8]);
+
+  return (
+    <motion.div
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        x.set(e.clientX - rect.left - rect.width / 2);
+        y.set(e.clientY - rect.top - rect.height / 2);
+      }}
+      onMouseLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
+      style={{ rotateX, rotateY }}
+      whileHover={{ scale: 1.04 }}
+      className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/0 transition"
+    >
+      {/* Gradient Border */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-xl bg-gradient-to-br from-galaxy-purple/30 to-galaxy-cyan/30" />
+
+      {/* Card */}
+      <div className="relative glass p-6 rounded-2xl h-full overflow-hidden">
+        
+        {/* Icon */}
+        <motion.div
+          whileHover={{ rotate: 10, scale: 1.1 }}
+          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.accent} p-[1px] mb-5`}
+        >
+          <div className="w-full h-full rounded-xl bg-galaxy-secondary flex items-center justify-center text-xl">
+            {f.icon}
+          </div>
+        </motion.div>
+
+        {/* Title */}
+        <h3 className="text-white font-semibold text-lg mb-2">
+          {f.title}
+        </h3>
+
+        {/* Desc */}
+        <p className="text-galaxy-subtext text-sm leading-relaxed">
+          {f.desc}
+        </p>
+
+        {/* Shine Effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none">
+          <div className="absolute -top-1/2 left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent via-white/10 to-transparent rotate-12 translate-x-[-50%]" />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Features() {
   return (
-    <section id="features" className="py-28 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 sm:py-28 px-4 sm:px-6 relative overflow-hidden">
+      
+      {/* 🌌 Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[900px] h-[400px] bg-galaxy-purple/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           <span className="inline-block text-xs font-mono text-galaxy-violet tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border border-galaxy-purple/30 bg-galaxy-purple/10">
             Everything You Need
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-6xl text-white mb-4 leading-tight">
-            Built to get you{" "}
-            <span className="text-gradient">hired.</span>
+
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-white mb-4">
+            Built to get you <span className="text-gradient">hired.</span>
           </h2>
-          <p className="text-galaxy-subtext max-w-xl mx-auto text-lg">
-            Every feature is designed around one goal — making you interview-ready faster than any other platform.
+
+          <p className="text-galaxy-subtext max-w-md mx-auto text-sm sm:text-base">
+            Every feature is designed to accelerate your interview success.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f, i) => (
-            <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="group relative glass glass-hover rounded-2xl p-6 cursor-default overflow-hidden"
-            >
-              {/* Hover glow */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
-                style={{
-                  background: `radial-gradient(ellipse at 30% 0%, ${f.glow} 0%, transparent 70%)`,
-                }}
-              />
-
-              {/* Icon */}
-              <div className={`relative w-12 h-12 rounded-xl bg-gradient-to-br ${f.accent} p-0.5 mb-5`}>
-                <div className="w-full h-full rounded-xl bg-galaxy-secondary flex items-center justify-center text-xl">
-                  {f.icon}
-                </div>
-              </div>
-
-              <h3 className="relative font-display font-semibold text-lg text-white mb-2">
-                {f.title}
-              </h3>
-              <p className="relative text-galaxy-subtext text-sm leading-relaxed">
-                {f.desc}
-              </p>
-
-              {/* Corner accent */}
-              <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${f.accent} opacity-5 rounded-bl-full`} />
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {features.map((f) => (
+            <motion.div key={f.title} variants={item}>
+              <FeatureCard f={f} />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
