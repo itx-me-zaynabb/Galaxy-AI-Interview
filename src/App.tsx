@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import GalaxyCursor from "./components/GalaxyCursor";
 import Hero from "./sections/Hero";
-import Features from "./sections/Features";
 import HowItWorks from "./sections/HowItWorks";
 import Analytics from "./sections/Analytics";
 import Testimonials from "./sections/Testimonials";
@@ -11,6 +10,7 @@ import CTA from "./sections/CTA";
 import Footer from "./sections/Footer";
 import InterviewPage from "./sections/InterviewPage";
 import Dashboard from "./sections/Dashboard";
+import Features from "./sections/features";
 
 export type Page = "home" | "interview" | "dashboard";
 
@@ -31,13 +31,12 @@ export default function App() {
           {page === "home" && (
             <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
               <Hero setPage={setPage} />
-              <Features />
+              <Features/>
               <HowItWorks />
               <Analytics />
               <Testimonials />
-             
               <CTA setPage={setPage} />
-              <Footer/>
+              <Footer />
             </motion.div>
           )}
           {page === "interview" && (
