@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { useEffect, useRef } from "react";
 import type { Page } from "../App";
 
 const stagger = { animate: { transition: { staggerChildren: 0.12 } } };
 const fadeUp = {
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: cubicBezier(0.22, 1, 0.36, 1) } },
 };
 const TAGS = ["GPT-4 Powered", "Real-time Feedback", "500+ Companies", "FAANG Ready"];
 
