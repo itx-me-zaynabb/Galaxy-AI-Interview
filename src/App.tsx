@@ -12,7 +12,7 @@ import Footer from "./sections/Footer";
 import InterviewPage from "./sections/InterviewPage";
 import Dashboard from "./sections/Dashboard";
 import Pricing from "./sections/Pircing";
-import Features from "./sections/features";
+import Features from "./sections/Features";
 
 export type Page = "home" | "interview" | "dashboard";
 
