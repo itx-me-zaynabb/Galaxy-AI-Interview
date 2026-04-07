@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Stars, Float } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
-import { color } from "framer-motion";
 
 function FloatingOrb() {
   const ref = useRef<THREE.Mesh>(null!);

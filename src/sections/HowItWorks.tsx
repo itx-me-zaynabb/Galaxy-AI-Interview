@@ -53,7 +53,7 @@ const item = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -63,7 +63,7 @@ export default function HowItWorks() {
       
       {/* 🌌 Background Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[700px] h-[400px] bg-galaxy-purple/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
+        <div className="absolute w-175 h-100 bg-galaxy-purple/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -99,7 +99,7 @@ export default function HowItWorks() {
         >
           
           {/* 🔗 Connector line (desktop only) */}
-          <div className="hidden lg:block absolute top-14 left-[10%] right-[10%] h-px bg-gradient-to-r from-galaxy-purple via-galaxy-cyan to-pink-400 opacity-30" />
+          <div className="hidden lg:block absolute top-14 left-[10%] right-[10%] h-px bg-linear-to-r from-galaxy-purple via-galaxy-cyan to-pink-400 opacity-30" />
 
           {steps.map((step) => (
             <motion.div

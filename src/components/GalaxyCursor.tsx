@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-hooks/immutability */
 import { useEffect, useRef } from "react";
 
 export default function GalaxyCursor() {
@@ -97,7 +99,7 @@ export default function GalaxyCursor() {
       {/* Dot */}
       <div
         ref={dotRef}
-        className="fixed pointer-events-none z-[9999]"
+        className="fixed pointer-events-none z-9999"
         style={{
           width: "8px",
           height: "8px",
@@ -111,7 +113,7 @@ export default function GalaxyCursor() {
       {/* Ring */}
       <div
         ref={ringRef}
-        className="fixed pointer-events-none z-[9998]"
+        className="fixed pointer-events-none z-9998"
         style={{
           width: "36px",
           height: "36px",

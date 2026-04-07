@@ -136,7 +136,7 @@ export default function Hero({ setPage }: HeroProps) {
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[300px] md:h-[400px] rounded-full bg-galaxy-purple/10 blur-[100px] pointer-events-none z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 md:w-200 h-75 md:h-100 rounded-full bg-galaxy-purple/10 blur-[100px] pointer-events-none z-10" />
 
       {/* Hero Content */}
       <motion.div variants={stagger} initial="initial" animate="animate" className="relative z-20 flex flex-col items-center text-center max-w-5xl mx-auto">
@@ -163,7 +163,7 @@ export default function Hero({ setPage }: HeroProps) {
             whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(124,58,237,0.6)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setPage("interview")}
-            className="px-8 py-4 rounded-xl bg-gradient-to-r from-galaxy-purple via-galaxy-indigo to-galaxy-purple text-white font-semibold text-base shadow-glow"
+            className="px-8 py-4 rounded-xl bg-linear-to-r from-galaxy-purple via-galaxy-indigo to-galaxy-purple text-white font-semibold text-base shadow-glow"
           >
             🎤 Start Mock Interview
           </motion.button>
@@ -197,7 +197,7 @@ export default function Hero({ setPage }: HeroProps) {
           </div>
           <div className="p-6 text-left">
             <div className="flex gap-3 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-galaxy-purple to-galaxy-cyan flex-shrink-0 flex items-center justify-center text-xs font-bold">AI</div>
+              <div className="w-8 h-8 rounded-lg bg-linear-to-br from-galaxy-purple to-galaxy-cyan shrink-0 flex items-center justify-center text-xs font-bold">AI</div>
               <div className="glass rounded-xl rounded-tl-none px-4 py-3 text-sm text-galaxy-text leading-relaxed max-w-lg">
                 Explain how you would design a distributed rate limiter that handles <span className="text-galaxy-violet font-medium">10M requests/second</span> across multiple data centers.
               </div>
@@ -207,7 +207,7 @@ export default function Hero({ setPage }: HeroProps) {
                 I'd use a token bucket algorithm with Redis as the distributed store...
                 <span className="inline-block w-0.5 h-4 bg-galaxy-cyan ml-1 animate-pulse align-middle" />
               </div>
-              <div className="w-8 h-8 rounded-lg bg-galaxy-border flex-shrink-0 flex items-center justify-center text-xs font-medium">U</div>
+              <div className="w-8 h-8 rounded-lg bg-galaxy-border shrink-0 flex items-center justify-center text-xs font-medium">U</div>
             </div>
             <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-galaxy-purple/10 border border-galaxy-purple/20">
               <div className="flex gap-1">

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Page } from "../App";
@@ -39,7 +39,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
           whileHover={{ scale: 1.05 }}
           onClick={() => setPage("home")}
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-galaxy-purple to-galaxy-cyan flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.6)]">
+          <div className="w-9 h-9 rounded-xl bg-linear-to-br from-galaxy-purple to-galaxy-cyan flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.6)]">
             <span className="text-white font-bold text-sm">G</span>
           </div>
           <span className="font-bold text-lg text-white">
@@ -61,7 +61,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
 
                 {/* underline animation */}
                 <motion.span
-                  className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-purple-500 to-cyan-400"
+                  className="absolute left-0 -bottom-1 h-0.5 w-0 bg-linear-to-r from-purple-500 to-cyan-400"
                   whileHover={{ width: "100%" }}
                   transition={{ duration: 0.3 }}
                 />
@@ -89,7 +89,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setPage("interview")}
-            className="relative px-5 py-2.5 rounded-xl bg-gradient-to-r from-galaxy-purple to-galaxy-indigo text-white text-sm font-medium overflow-hidden"
+            className="relative px-5 py-2.5 rounded-xl bg-linear-to-r from-galaxy-purple to-galaxy-indigo text-white text-sm font-medium overflow-hidden"
           >
             {/* glow layer */}
             <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition" />
@@ -139,7 +139,7 @@ export default function Navbar({ page, setPage }: NavbarProps) {
                   setPage("interview");
                   setMobileOpen(false);
                 }}
-                className="mt-2 w-full py-3 rounded-xl bg-gradient-to-r from-galaxy-purple to-galaxy-indigo text-white font-medium"
+                className="mt-2 w-full py-3 rounded-xl bg-linear-to-r from-galaxy-purple to-galaxy-indigo text-white font-medium"
               >
                 🎤 Start Interview
               </button>

@@ -77,10 +77,10 @@ function FeatureCard({ f }: any) {
       }}
       style={{ rotateX, rotateY }}
       whileHover={{ scale: 1.04 }}
-      className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-white/10 to-white/0 transition"
+      className="group relative rounded-2xl p-px bg-linear-to-br from-white/10 to-white/0 transition"
     >
       {/* Gradient Border */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-xl bg-gradient-to-br from-galaxy-purple/30 to-galaxy-cyan/30" />
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-xl bg-linear-to-br from-galaxy-purple/30 to-galaxy-cyan/30" />
 
       {/* Card */}
       <div className="relative glass p-6 rounded-2xl h-full overflow-hidden">
@@ -88,7 +88,7 @@ function FeatureCard({ f }: any) {
         {/* Icon */}
         <motion.div
           whileHover={{ rotate: 10, scale: 1.1 }}
-          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.accent} p-[1px] mb-5`}
+          className={`w-12 h-12 rounded-xl bg-linear-to-br ${f.accent} p-px mb-5`}
         >
           <div className="w-full h-full rounded-xl bg-galaxy-secondary flex items-center justify-center text-xl">
             {f.icon}
@@ -107,7 +107,7 @@ function FeatureCard({ f }: any) {
 
         {/* Shine Effect */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 pointer-events-none">
-          <div className="absolute -top-1/2 left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent via-white/10 to-transparent rotate-12 translate-x-[-50%]" />
+          <div className="absolute -top-1/2 left-1/2 w-[200%] h-[200%] bg-linear-to-tr from-transparent via-white/10 to-transparent rotate-12 translate-x-[-50%]" />
         </div>
       </div>
     </motion.div>
@@ -120,7 +120,7 @@ export default function Features() {
       
       {/* 🌌 Background Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[900px] h-[400px] bg-galaxy-purple/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
+        <div className="absolute w-225 h-100 bg-galaxy-purple/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

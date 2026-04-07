@@ -64,7 +64,7 @@ export default function Testimonials() {
       
       {/* 🌌 Background Glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[800px] h-[400px] bg-galaxy-pink/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
+        <div className="absolute w-200 h-100 bg-galaxy-pink/10 blur-[120px] top-20 left-1/2 -translate-x-1/2" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -119,7 +119,7 @@ export default function Testimonials() {
               <div className="flex justify-between items-start mb-5 relative z-10">
                 <div className="flex gap-3 items-center">
                   <div
-                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${t.color} flex items-center justify-center text-sm font-bold text-white`}
+                    className={`w-11 h-11 rounded-xl bg-linear-to-br ${t.color} flex items-center justify-center text-sm font-bold text-white`}
                   >
                     {t.avatar}
                   </div>
@@ -167,7 +167,7 @@ export default function Testimonials() {
               </div>
 
               {/* 🔥 Bottom Shine Effect */}
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-galaxy-purple to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-transparent via-galaxy-purple to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
             </motion.div>
           ))}
         </motion.div>

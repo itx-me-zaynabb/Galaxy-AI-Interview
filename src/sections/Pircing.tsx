@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { motion, useMotionValue, useTransform } from "framer-motion";
+ 
+ 
+import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
@@ -201,7 +202,7 @@ export default function PricingGalaxy() {
               }`}
             >
               {plan.badge && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-galaxy-purple to-galaxy-indigo text-white text-xs font-mono shadow-glow">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-linear-to-r from-galaxy-purple to-galaxy-indigo text-white text-xs font-mono shadow-glow">
                   {plan.badge}
                 </div>
               )}
@@ -221,7 +222,7 @@ export default function PricingGalaxy() {
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-sm text-galaxy-subtext">
-                    <span className="text-galaxy-cyan mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-galaxy-cyan mt-0.5 shrink-0">✓</span>
                     {f}
                   </li>
                 ))}

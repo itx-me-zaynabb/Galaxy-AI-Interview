@@ -195,7 +195,7 @@ export default function InterviewPage() {
             {phase === "thinking" && (
               <div className="text-center py-10">
                 <motion.div
-                  className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-purple-500 to-cyan-400"
+                  className="w-20 h-20 mx-auto rounded-full bg-linear-to-br from-purple-500 to-cyan-400"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ repeat: Infinity, duration: 2 }}
                 />
