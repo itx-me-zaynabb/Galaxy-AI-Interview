@@ -84,7 +84,7 @@ export default function Dashboard() {
                     initial={{ height: 0 }}
                     animate={{ height: `${(val / maxBar) * 100}%` }}
                     transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut" }}
-                    className="w-full rounded-t-lg bg-gradient-to-t from-galaxy-purple to-galaxy-cyan relative group cursor-pointer"
+                    className="w-full rounded-t-lg bg-linear-to-t from-galaxy-purple to-galaxy-cyan relative group cursor-pointer"
                     style={{ minHeight: "4px" }}
                   >
                     <div className="absolute -top-7 left-1/2 -translate-x-1/2 text-xs font-mono text-galaxy-cyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-galaxy-secondary px-2 py-0.5 rounded">
@@ -150,7 +150,7 @@ export default function Dashboard() {
                   </div>
                   <div className="h-2 rounded-full bg-galaxy-border/40 overflow-hidden">
                     <motion.div
-                      className={`h-full rounded-full bg-gradient-to-r ${s.color}`}
+                      className={`h-full rounded-full bg-linear-to-r ${s.color}`}
                       initial={{ width: 0 }}
                       animate={{ width: `${s.score}%` }}
                       transition={{ duration: 1, delay: 0.4 + i * 0.1, ease: "easeOut" }}
@@ -190,7 +190,7 @@ export default function Dashboard() {
                     <p className="text-xs text-galaxy-text font-medium truncate">{s.category}</p>
                     <p className="text-xs text-galaxy-muted">{s.company} · {s.time}</p>
                   </div>
-                  <span className="text-xs text-galaxy-muted font-mono flex-shrink-0">{s.date}</span>
+                  <span className="text-xs text-galaxy-muted font-mono shrink-0">{s.date}</span>
                 </div>
               ))}
             </div>
