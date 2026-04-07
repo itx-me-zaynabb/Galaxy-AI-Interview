@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+# 🌌 Galaxy AI — Interview Preparation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Practice smarter. Perform better. Get hired.**
 
-Currently, two official plugins are available:
+Galaxy AI is a modern, AI-powered mock interview platform designed to simulate real interview environments — with **instant feedback, performance analytics, and a premium 3D UI experience**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Why this project stands out
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Most interview apps focus on “questions.”
 
-## Expanding the ESLint configuration
+**Galaxy AI focuses on performance.**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* 🎯 Real interview simulation (timed + structured)
+* 🧠 AI-powered feedback system
+* 📊 Performance analytics dashboard
+* 🌌 Immersive 3D UI experience
+* ⚡ Smooth, production-level animations
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🎤 AI Interview Engine
+
+* Real-world questions (System Design, DSA, Behavioral)
+* Timer-based answering
+* Voice input support
+* Instant feedback with scoring
+
+### 📊 Smart Dashboard
+
+* Weekly performance tracking
+* Skill breakdown visualization
+* AI-generated insights
+* Progress & streak tracking
+
+### 🌌 Premium UI/UX
+
+* Glassmorphism + gradient design system
+* 3D tilt interactions
+* Smooth micro-animations (Framer Motion)
+* Fully responsive across devices
+
+---
+
+## 🧠 Tech Stack
+
+* **Frontend:** React + TypeScript
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion
+* **3D Effects:** Custom tilt + galaxy background
+* **State Management:** React Hooks
+
+
+
+---
+
+## ⚙️ Getting Started
+
+```bash
+git clone https://github.com/your-username/galaxy-ai.git
+cd galaxy-ai
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎯 What I focused on
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project was built with a **product mindset**, not just UI:
+
+* Scalable component architecture
+* Real-world UX flows (interview → feedback → analytics)
+* Performance-first animations
+* Clean, maintainable code
+
+---
+
+## 🚀 Future Improvements
+
+* 🤖 Real AI feedback (LLM integration)
+* 📈 Advanced analytics (charts + trends)
+* 🎯 Personalized interview paths
+* 🌐 Backend (NestJS / WebSockets)
+
+---
+
+## 👩‍💻 Author
+
+**Zainab Fatima**
+Frontend Developer (React, TypeScript, UI Engineering)
+
+---
+
+## ⭐ Final Note
+
+This isn’t just a UI project.
+
+It’s a **simulation of a real product** — designed to show how I think about
+**UX, performance, scalability, and user experience together.**
+
