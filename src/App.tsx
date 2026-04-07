@@ -32,7 +32,7 @@ export default function App() {
           {page === "home" && (
             <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
               <Hero setPage={setPage} />
-              <Features/>
+            <Features/>
               <HowItWorks />
               <Analytics />
               <Testimonials />
