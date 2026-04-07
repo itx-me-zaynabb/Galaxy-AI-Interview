@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
@@ -10,8 +11,8 @@ import CTA from "./sections/CTA";
 import Footer from "./sections/Footer";
 import InterviewPage from "./sections/InterviewPage";
 import Dashboard from "./sections/Dashboard";
-import Features from "./sections/features";
 import Pricing from "./sections/Pircing";
+import Features from "./sections/features";
 
 export type Page = "home" | "interview" | "dashboard";
 
