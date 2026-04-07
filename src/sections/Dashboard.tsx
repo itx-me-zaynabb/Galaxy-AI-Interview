@@ -176,7 +176,7 @@ export default function Dashboard() {
                   className="flex items-center gap-3 p-3 rounded-xl bg-galaxy-secondary/40 hover:bg-galaxy-secondary/70 transition-colors cursor-pointer"
                 >
                   <div
-                    className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold font-mono shrink-0 ${
+                    className={`w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold font-mono flex-shrink-0 ${
                       s.score >= 80
                         ? "bg-green-500/20 text-green-400"
                         : s.score >= 60
