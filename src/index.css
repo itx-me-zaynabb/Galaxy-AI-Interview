@@ -114,6 +114,7 @@
     border: 1px solid var(--glass-border);
     border-radius: 1.25rem;
   }
+ 
 
   .glass-strong {
     background: rgba(15, 22, 40, 0.75);
