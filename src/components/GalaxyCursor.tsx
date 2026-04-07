@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 /* eslint-disable react-hooks/immutability */
 import { useEffect, useRef } from "react";
 
 export default function GalaxyCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const trailsRef = useRef<HTMLDivElement[]>([]);
   const pos = useRef({ x: 0, y: 0 });
   const ringPos = useRef({ x: 0, y: 0 });
 
