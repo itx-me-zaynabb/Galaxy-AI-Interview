@@ -136,7 +136,7 @@ export default function CTA({ setPage }: CTAProps) {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setPage("interview")}
                 className="w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 
-                rounded-xl bg-gradient-to-r from-galaxy-purple to-galaxy-indigo 
+                rounded-xl bg-linear-to-r from-galaxy-purple to-galaxy-indigo 
                 text-white font-semibold text-sm sm:text-lg"
               >
                 🎤 Start Interview
